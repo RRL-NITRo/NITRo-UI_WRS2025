@@ -2,7 +2,7 @@ repositories:
   wrs_ws/src/choreonoid:
     type: git
     url: git@github.com:choreonoid/choreonoid.git
-    version: master
+    version: v2.4.0
   wrs_ws/src/choreonoid_ros:
     type: git
     url: git@github.com:choreonoid/choreonoid_ros.git
