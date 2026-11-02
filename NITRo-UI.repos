@@ -1,0 +1,29 @@
+repositories:
+  wrs_ws/src/choreonoid:
+    type: git
+    url: git@github.com:choreonoid/choreonoid.git
+    version: master
+  wrs_ws/src/choreonoid_ros:
+    type: git
+    url: git@github.com:choreonoid/choreonoid_ros.git
+    version: master
+  wrs_ws/src/choreonoid/ext/WRS2024PRE:
+    type: git
+    url: git@github.com:wrs-frei-simulation/WRS-Pre-2024.git
+    version: main
+  wrs_ws/src/choreonoid/ext/WRS2025:
+    type: git
+    url: git@github.com:wrs-frei-simulation/WRS-2025.git
+    version: main
+  wrs_ws/src/choreonoid/ext/hairo-world-plugin:
+    type: git
+    url: git@github.com:RRL-NITRo/hairo-world-plugin.git
+    version: fix-wrsutil
+  wrs_ws/src/choreonoid_joy2:
+    type: git
+    url: git@github.com:wrs-sim/choreonoid_joy2.git
+    version: main
+  wrs_ws/src/nitro-ui_simulation:
+    type: git
+    url: git@github.com:RRL-NITRo/nitro-ui_simulation.git
+    version: main
