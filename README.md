@@ -140,7 +140,7 @@ UGV operator screen:
 ros2 launch operator_launcher rviz.launch.py
 ```
 
-UAV operator screen:
+UAV operator screen (requires `pyzbar`, which `01_ros_setup.sh` installs. If it is missing, install it with `sudo apt install python3-pyzbar`):
 
 ```bash
 ros2 launch operator_launcher rviz_drone.launch.py
@@ -150,7 +150,7 @@ ros2 launch operator_launcher rviz_drone.launch.py
 
 | Script | Description |
 |---|---|
-| `01_ros_setup.sh` | Installs ROS 2 Humble, colcon, and vcstool |
+| `01_ros_setup.sh` | Installs ROS 2 Humble, colcon, vcstool, and pyzbar |
 | `02_agx_setup.sh` | Downloads and installs AGX Dynamics |
 | `03_choreonoid.sh` | Fetches repositories → installs dependencies → builds |
 | `04_vcs_import.sh` | Fetches the repositories in `NITRo-UI.repos` (called by 03) |

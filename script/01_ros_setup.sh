@@ -26,6 +26,9 @@ echo "[Install ROS 2 Humble]"
 sudo apt install -y ros-humble-desktop ros-humble-compressed-image-transport
 sudo apt install -y python3-colcon-common-extensions python3-vcstool
 
+echo "[Install dependencies for NITRo-UI packages]"
+sudo apt install -y python3-pyzbar
+
 echo "[Environment setup]"
 add_bashrc "source /opt/ros/humble/setup.bash"
 
