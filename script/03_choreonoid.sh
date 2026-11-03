@@ -9,6 +9,13 @@ add_bashrc "source /opt/Algoryx/AGX-2.40.0.0/setup_env.bash"
 
 bash "$WS_ROOT/script/04_vcs_import.sh"
 
+HAIRO_DIR="$WS_ROOT/wrs_ws/src/choreonoid/ext/hairo-world-plugin"
+if [ ! -f "$HAIRO_DIR/CMakeLists.txt" ]; then
+  echo "[Error] hairo-world-plugin was not found in $HAIRO_DIR"
+  echo "Get hairo-world-plugin from the competition secretariat, place it there, and run this script again."
+  exit 1
+fi
+
 echo "[Install Choreonoid requisites]"
 bash "$WS_ROOT/wrs_ws/src/choreonoid/misc/script/install-requisites-ubuntu-22.04.sh"
 

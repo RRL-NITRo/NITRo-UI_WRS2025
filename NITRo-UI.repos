@@ -15,10 +15,6 @@ repositories:
     type: git
     url: git@github.com:wrs-frei-simulation/WRS-2025.git
     version: main
-  wrs_ws/src/choreonoid/ext/hairo-world-plugin:
-    type: git
-    url: git@github.com:RRL-NITRo/hairo-world-plugin.git
-    version: fix-wrsutil
   wrs_ws/src/choreonoid_joy2:
     type: git
     url: git@github.com:wrs-sim/choreonoid_joy2.git

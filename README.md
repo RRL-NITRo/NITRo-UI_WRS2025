@@ -15,6 +15,7 @@ It installs ROS 2 Humble, AGX Dynamics, and Choreonoid (with the WRS2025 environ
 
 - Register an SSH key with GitHub (the URLs in the `.repos` file use SSH)
 - Get the AGX Dynamics license file (`agx.lic`) from the competition secretariat
+- Get `hairo-world-plugin` from the competition secretariat (it is not included in this repository for license reasons)
 
 ## Directory structure
 
@@ -28,7 +29,7 @@ NITRo-UI_WRS2025/
         │   └── ext/
         │       ├── WRS2024PRE/
         │       ├── WRS2025/
-        │       └── hairo-world-plugin/
+        │       └── hairo-world-plugin/   # Placed manually (from the competition secretariat)
         ├── choreonoid_ros/
         ├── choreonoid_joy2/
         └── nitro-ui_simulation/
@@ -58,7 +59,24 @@ bash script/02_agx_setup.sh
 
 After installation, place the license file `agx.lic` in `/opt/Algoryx/AGX-2.40.0.0/`.
 
-### 4. Set up Choreonoid and the WRS2025 environment
+### 4. Fetch the repositories
+
+```bash
+bash script/04_vcs_import.sh
+```
+
+### 5. Place hairo-world-plugin
+
+Place the `hairo-world-plugin` you got from the competition secretariat in Choreonoid's `ext/`.
+The directory must be named `hairo-world-plugin`.
+
+```
+~/NITRo-UI_WRS2025/wrs_ws/src/choreonoid/ext/hairo-world-plugin/
+```
+
+WRS2025 uses this plugin, so the build fails without it.
+
+### 6. Set up Choreonoid and the WRS2025 environment
 
 **Open a new terminal** before running this step.
 
@@ -67,9 +85,10 @@ bash script/03_choreonoid.sh
 ```
 
 This fetches the repositories, installs the Choreonoid dependencies, and builds the workspace.
+If `hairo-world-plugin` is not in place, the script stops before building.
 When it finishes, open a new terminal to apply the environment.
 
-### 5. Place the NITRo-UI robot models in Choreonoid
+### 7. Place the NITRo-UI robot models in Choreonoid
 
 Copy `choreonoid_model_NITRoUI` from `nitro-ui_simulation` into Choreonoid's `ext/`.
 
@@ -152,7 +171,7 @@ ros2 launch operator_launcher rviz_drone.launch.py
 |---|---|
 | `01_ros_setup.sh` | Installs ROS 2 Humble, colcon, vcstool, and pyzbar |
 | `02_agx_setup.sh` | Downloads and installs AGX Dynamics |
-| `03_choreonoid.sh` | Fetches repositories → installs dependencies → builds |
+| `03_choreonoid.sh` | Fetches repositories → checks `hairo-world-plugin` → installs dependencies → builds |
 | `04_vcs_import.sh` | Fetches the repositories in `NITRo-UI.repos` (called by 03) |
 | `10_ws_build.sh` | Builds the workspace |
 | `11_ws_reset.sh` | Removes `build/` `install/` `log/` (asks before removing `src/`) |
@@ -170,12 +189,12 @@ bash script/11_ws_reset.sh
 bash script/10_ws_build.sh
 ```
 
-If you also removed `src/` with `11_ws_reset.sh`, fetch the repositories again with `04_vcs_import.sh` before rebuilding.
+If you also removed `src/` with `11_ws_reset.sh`, fetch the repositories again with `04_vcs_import.sh` and place `hairo-world-plugin` again before rebuilding.
 Note that removing `src/` also deletes any uncommitted changes.
 
 ## Notes
 
-- `hairo-world-plugin` uses the RRL-NITRo fork (`fix-wrsutil` branch).
+- `hairo-world-plugin` is not fetched by `NITRo-UI.repos` for license reasons. Get it from the competition secretariat.
 - Choreonoid is pinned to v2.4.0 in `NITRo-UI.repos`. Newer versions changed the `Device` API, and `hairo-world-plugin` fails to build with them.
 - The following lines are added to `.bashrc` (they are not added twice).
 
