@@ -3,6 +3,8 @@
 This repository sets up the development environment for the WRS2025 simulation competition.
 It installs ROS 2 Humble, AGX Dynamics, and Choreonoid (with the WRS2025 environment) on Ubuntu 22.04, and builds the workspace.
 
+Our own robot models and simulation packages are developed in [nitro-ui_simulation](https://github.com/RRL-NITRo/nitro-ui_simulation).
+
 ## Requirements
 
 - Ubuntu 22.04 (amd64)
